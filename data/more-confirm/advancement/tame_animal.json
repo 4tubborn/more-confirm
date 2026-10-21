@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:tame_animal"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:tame_animal"
+    }
+}

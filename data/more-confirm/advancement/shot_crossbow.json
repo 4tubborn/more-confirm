@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:shot_crossbow"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:shot_crossbow"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "levitation"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:levitation"
+    }
+}

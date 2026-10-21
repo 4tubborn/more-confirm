@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:target_hit"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:target_hit"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "enchanted_item"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:enchanted_item"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "brewed_potion"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:brewed_potion"
+    }
+}

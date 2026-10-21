@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:started_riding"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:started_riding"
+    }
+}

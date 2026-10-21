@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:voluntary_exile"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:voluntary_exile"
+    }
+}

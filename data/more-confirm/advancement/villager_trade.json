@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:villager_trade"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:villager_trade"
+    }
+}

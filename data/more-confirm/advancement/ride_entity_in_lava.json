@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:ride_entity_in_lava"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:ride_entity_in_lava"
+    }
+}

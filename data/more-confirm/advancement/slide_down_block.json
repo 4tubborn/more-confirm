@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:slide_down_block"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:slide_down_block"
+    }
+}

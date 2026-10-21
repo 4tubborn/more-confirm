@@ -1,0 +1,26 @@
+{
+    "criteria": {
+        "end_gateway":{
+            "trigger": "enter_block",
+            "conditions": {
+                "block": "end_gateway"
+            }
+        },
+        "cobweb":{
+            "trigger": "enter_block",
+            "conditions": {
+                "block": "cobweb"
+            }
+        },
+        "lava":{
+            "trigger": "enter_block",
+            "conditions": {
+                "block": "lava"
+            }
+        }
+    },
+    "requirements": [["cobweb","end_gateway","lava"]],
+    "rewards": {
+        "function": "more-confirm:enter_block"
+    }
+}

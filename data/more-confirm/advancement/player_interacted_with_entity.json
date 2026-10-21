@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:player_interacted_with_entity"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:player_interacted_with_entity"
+    }
+}

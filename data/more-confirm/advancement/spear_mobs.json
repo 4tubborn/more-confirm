@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:spear_mobs"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:spear_mobs"
+    }
+}

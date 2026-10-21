@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:used_totem"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:used_totem"
+    }
+}

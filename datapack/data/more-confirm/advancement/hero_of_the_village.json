@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "hero_of_the_village"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:hero_of_the_village"
+    }
+}

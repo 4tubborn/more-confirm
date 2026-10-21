@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "killed_by_arrow"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:killed_by_arrow"
+    }
+}

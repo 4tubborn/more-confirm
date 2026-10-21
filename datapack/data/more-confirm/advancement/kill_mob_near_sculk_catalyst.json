@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "kill_mob_near_sculk_catalyst"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:kill_mob_near_sculk_catalyst"
+    }
+}

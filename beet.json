@@ -1,0 +1,23 @@
+{
+  "author": "4tubborn",
+  "description": "More confirm",
+  "data_pack": {
+    "zipped": true,
+    "name": "More Confirm {{ version }}",
+    "load": ["datapack"]
+  },
+  "resource_pack": {
+    "zipped": true,
+    "name": "More Confirm RP {{ version }}",
+    "load": ["resourcepack"]
+  },
+  "pipeline": [
+    "beet.contrib.minify_function",
+    "beet.contrib.minify_json",
+    "beet.contrib.render"
+  ],
+  "meta": {
+    "version": "v0.0.3"
+  },
+  "output": "build"
+}

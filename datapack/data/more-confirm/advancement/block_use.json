@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "any_block_use"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:block_use"
+    }
+}

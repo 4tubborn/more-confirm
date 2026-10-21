@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "construct_beacon"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:construct_beacon"
+    }
+}

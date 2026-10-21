@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:player_sheared_equipment"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:player_sheared_equipment"
+    }
+}

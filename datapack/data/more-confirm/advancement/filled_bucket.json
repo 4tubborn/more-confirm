@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "filled_bucket"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:filled_bucket"
+    }
+}

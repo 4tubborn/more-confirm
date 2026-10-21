@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:using_item"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:using_item"
+    }
+}

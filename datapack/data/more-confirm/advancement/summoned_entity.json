@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:summoned_entity"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:summoned_entity"
+    }
+}

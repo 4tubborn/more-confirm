@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "fall_after_explosion"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:fall_after_explosion"
+    }
+}

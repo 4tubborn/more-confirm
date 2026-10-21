@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "consume_item"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:consume_item"
+    }
+}

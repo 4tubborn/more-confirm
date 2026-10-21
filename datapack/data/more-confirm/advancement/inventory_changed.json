@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "inventory_changed"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:inventory_changed"
+    }
+}

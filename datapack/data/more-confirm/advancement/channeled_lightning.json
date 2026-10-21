@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "channeled_lightning"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:channeled_lightning"
+    }
+}

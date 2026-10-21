@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:player_generates_container_loot"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:player_generates_container_loot"
+    }
+}

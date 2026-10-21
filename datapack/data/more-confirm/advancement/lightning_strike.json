@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:lightning_strike"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:lightning_strike"
+    }
+}

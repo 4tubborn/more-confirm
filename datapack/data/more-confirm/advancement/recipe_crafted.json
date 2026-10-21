@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:recipe_crafted"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:recipe_crafted"
+    }
+}

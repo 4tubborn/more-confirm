@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "placed_block"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:placed_block"
+    }
+}

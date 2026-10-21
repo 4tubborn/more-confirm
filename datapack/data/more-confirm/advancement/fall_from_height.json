@@ -1,0 +1,17 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "fall_from_height",
+            "conditions": {
+                "player": {
+                    "flags":{
+                        "is_flying": false
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:fall_from_height"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "effects_changed"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:effects_changed"
+    }
+}

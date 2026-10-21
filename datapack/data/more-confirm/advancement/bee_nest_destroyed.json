@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "minecraft:bee_nest_destroyed"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:bee_nest_destroyed"
+    }
+}

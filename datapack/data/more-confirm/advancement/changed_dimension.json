@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "changed_dimension"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:changed_dimension"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "use":{
+            "trigger": "bred_animals"
+        }
+    },
+    "rewards": {
+        "function": "more-confirm:bred_animals"
+    }
+}

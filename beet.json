@@ -1,23 +1,26 @@
 {
   "author": "4tubborn",
-  "description": "More confirm",
+  "description": "More confirm Dialogs",
   "data_pack": {
-    "zipped": true,
-    "name": "More Confirm {{ version }}",
+    "zipped": false,
+    "name": "More Confirm {{ datapack_version }}",
     "load": ["datapack"]
   },
   "resource_pack": {
-    "zipped": true,
-    "name": "More Confirm RP {{ version }}",
+    "zipped": false,
+    "name": "More Confirm RP {{ resourcepack_version }}",
     "load": ["resourcepack"]
   },
   "pipeline": [
     "beet.contrib.minify_function",
     "beet.contrib.minify_json",
-    "beet.contrib.render"
+    "beet.contrib.render",
+    "scripts.trigger",
+    "scripts.translate"
   ],
   "meta": {
-    "version": "v0.0.3"
+    "datapack_version": "v0.0.3",
+    "resourcepack_version": "v0.0.2"
   },
   "output": "build"
 }

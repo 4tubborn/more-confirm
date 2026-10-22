@@ -1,0 +1,84 @@
+
+name: Publish More Confirm
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.14"
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Build release
+        run: >
+          uv run beet
+          --set data_pack.zipped=true
+          --set resource_pack.zipped=true
+          build
+
+      - name: Find build artifacts
+        id: artifacts
+        shell: bash
+        run: |
+          datapack=$(find build -maxdepth 1 -type f \
+            -name 'More Confirm v*.zip' -print -quit)
+
+          resourcepack=$(find build -maxdepth 1 -type f \
+            -name 'More Confirm RP v*.zip' -print -quit)
+
+          if [[ -z "$datapack" || -z "$resourcepack" ]]; then
+            echo "Missing build artifacts!"
+            ls -la build/
+            exit 1
+          fi
+
+          echo "datapack=$datapack" >> "$GITHUB_OUTPUT"
+          echo "resourcepack=$resourcepack" >> "$GITHUB_OUTPUT"
+
+      - name: Publish datapack
+        uses: Kira-NT/mc-publish@v3
+        with:
+          modrinth-id: ${{ vars.MODRINTH_DATAPACK_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          files: ${{ steps.artifacts.outputs.datapack }}
+          name: More Confirm ${{ github.event.release.tag_name }}
+          version: ${{ github.event.release.tag_name }}
+          version-type: release
+          changelog: ${{ github.event.release.body }}
+
+          loaders: datapack
+          game-versions: |
+            1.21.11
+
+      - name: Publish resource pack
+        uses: Kira-NT/mc-publish@v3
+        with:
+          modrinth-id: ${{ vars.MODRINTH_RESOURCEPACK_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          files: ${{ steps.artifacts.outputs.resourcepack }}
+          name: More Confirm RP ${{ github.event.release.tag_name }}
+          version: ${{ github.event.release.tag_name }}
+          version-type: release
+          changelog: ${{ github.event.release.body }}
+
+          loaders: minecraft
+          game-versions: |
+            1.21.11

@@ -1,5 +1,6 @@
 
 from beet import Context, Function, Advancement
+from typing import Any
 
 TRIGGERS = [
     "allay_drop_item_on_block",
@@ -64,10 +65,23 @@ TRIGGERS = [
 DISABLED_TRIGGERS = {
     "impossible",
     "tick",
+    "crafter_recipe_crafted"
 }
 
 SCORE_TRIGGERS = {
     "location": 1,
+    "enter_block": 1
+}
+
+INPUT_TRIGGERS = {
+    "forward": {"input": {"forward": True}},
+    "backward": {"input": {"backward": True}},
+    "left": {"input": {"left": True}},
+    "right": {"input": {"right": True}},
+    "jump": {"input": {"jump": True}},
+    "sneak": {"input": {"sneak": True}},
+    "sprint": {"input": {"sprint": True}},
+    "look_at": {"looking_at": {}},
 }
 
 TEMPLATE_FUNC = """advancement revoke @s only more-confirm:{name}
@@ -79,55 +93,81 @@ dialog show @s {{\\
     body:[\\
         {{type:"plain_message",contents:{{translate:"dialog.more-confirm.body.title"}}}},\\
         {{type:"plain_message",contents:[{{translate:"dialog.more-confirm.body.contents",\\
-        with:[{{translate:"dialog.more-confirm.body.with.{name}",color:yellow}}]}}]}},\\
+        with:[{{translate:"dialog.more-confirm.body.with.{translation_name}",color:yellow}}]}}]}},\\
     ],\\
     actions:[\\
         {{label:{{translate:"dialog.more-confirm.confirm"}}}},\\
-        {{label:{{translate:"dialog.more-confirm.back"}}}}\\
+        {{label:{{translate:"gui.back"}}}}\\
     ]\\
 }}"""
 
-
 def beet_default(ctx: Context):
 
+    #load函数
     ctx.data["more-confirm:_load_"] = Function(
-        "scoreboard objectives add more-confirm.type dummy"
+        ["scoreboard objectives add more-confirm.type dummy"],
+        tags=["minecraft:load"],
     )
 
-    for name in TRIGGERS:
-        resource_id = f"more-confirm:{name}"
+    triggers = [(name, None)
+        for name in TRIGGERS
+        if name not in DISABLED_TRIGGERS
+    ] + [
+        (f"move/{name}", condition)
+        for name, condition in INPUT_TRIGGERS.items()
+    ]
 
-        # 生成函数
+    for name, player_predicate in triggers:
+        resource_id = f"more-confirm:{name}"
+        translation_name = name.replace("/", "_")
+
+        # 生成函数，对于input：translation_name为/替换成_的结果
         ctx.data[resource_id] = Function(
-            TEMPLATE_FUNC.format(name=name).splitlines()
+            TEMPLATE_FUNC.format(
+                name=name,
+                translation_name=translation_name
+            ).splitlines()
         )
 
-        # 生成进度条件
-        criterion = {
-            "trigger": f"minecraft:{name}"
+        #input为tick准则+玩家子谓词
+        # 生成进度
+        criterion: dict[str, Any] = {
+            "trigger": (
+                "tick"
+                if player_predicate is not None
+                else name
+            )
         }
 
-        if name in SCORE_TRIGGERS:
-            criterion["conditions"] = {
-                "player": [
-                    {
-                        "condition": "minecraft:entity_scores",
-                        "entity": "this",
-                        "scores": {
-                            "more-confirm.type": {
-                                "min": SCORE_TRIGGERS[name]
-                            }
-                        }
-                    }
-                ]
-            }
+        conditions = []
 
-        # 生成进度
+        if player_predicate is not None:
+            conditions.append({
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "type_specific": {
+                        "type": "player",
+                        **player_predicate
+                    }
+                }
+            })
+
+        if player_predicate is not None or name in SCORE_TRIGGERS:
+            conditions.append({
+                "condition": "entity_scores",
+                "entity": "this",
+                "scores": {
+                    "more-confirm.type": {
+                        "min": SCORE_TRIGGERS.get(name, 1)
+                    }
+                }
+            })
+
+        if conditions:
+            criterion["conditions"] = {"player": conditions}
+
         ctx.data.advancements[resource_id] = Advancement({
-            "criteria": {
-                "use": criterion
-            },
-            "rewards": {
-                "function": resource_id
-            }
+            "criteria": {"use": criterion},
+            "rewards": {"function": resource_id}
         })

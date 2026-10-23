@@ -2,14 +2,14 @@
 from beet import Context, Language
 
 TRANSLATIONS = {
-    "dialog.more-confirm.confirm": ("确认", "Confirm"),
-    "dialog.more-confirm.back": ("返回", "Back"),
+    "dialog.more-confirm.confirm": ("执行操作", "Execute Action"),
     "dialog.more-confirm.title": ("", ""),
     "dialog.more-confirm.body.title": ("\n确认执行操作", "\nConfirm Action"),
     "dialog.more-confirm.body.contents": (
         "你尝试执行的操作需要较高权限。\n这可能会对游戏产生负面影响。\n确定要执行吗？\n§e操作：%s\n",
         "The action you are attempting to perform requires elevated privileges.\nThis may negatively affect the game.\nAre you sure you want to proceed?\n§eAction: %s\n"
     ),
+    "dialog.more-confirm.body.with.any_block_use": ("任意方块交互", "Any Interact with Block"),
     "dialog.more-confirm.body.with.block_use": ("方块交互", "Interact with Block"),
     "dialog.more-confirm.body.with.bred_animals": ("繁殖动物", "Breed Animals"),
     "dialog.more-confirm.body.with.brewed_potion": ("酿造药水", "Brew Potion"),
@@ -65,8 +65,15 @@ TRANSLATIONS = {
     "dialog.more-confirm.body.with.used_totem": ("触发不死图腾", "Activate Totem of Undying"),
     "dialog.more-confirm.body.with.villager_trade": ("与村民交易", "Trade with Villager"),
     "dialog.more-confirm.body.with.voluntary_exile": ("触发袭击", "Trigger Raid"),
+    "dialog.more-confirm.body.with.move_backward": ("向后走", "Moving Backward"),
+    "dialog.more-confirm.body.with.move_forward": ("向前走", "Moving Forward"),
+    "dialog.more-confirm.body.with.move_jump": ("跳跃", "Jumping"),
+    "dialog.more-confirm.body.with.move_left": ("向左走", "Moving Left"),
+    "dialog.more-confirm.body.with.move_right": ("向右走", "Moving Right"),
+    "dialog.more-confirm.body.with.move_sneak": ("潜行", "Sneaking"),
+    "dialog.more-confirm.body.with.move_sprint": ("疾跑", "Sprinting"),
+    "dialog.more-confirm.body.with.move_look_at": ("看向实体", "Looking At An Entity"),
 }
-
 
 def beet_default(ctx: Context):
     for index, language in enumerate(("more-confirm:zh_cn", "more-confirm:en_us")):
